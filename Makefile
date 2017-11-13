@@ -9,17 +9,23 @@ CC= g++
 #For Optimization
 #CFLAGS= -O2
 #For debugging
-CFLAGS= -std=c++11
+CFLAGS= -std=c++14
 
 RM= /bin/rm -f
 
 all: namelookup PutCGI PutHTML
 
-namelookup.o: namelookup.cpp
+NameEntry.o: NameEntry.cpp NameEntry.h
+	$(CC) $(CFLAGS) NameEntry.cpp -c
+
+NameMap.o: NameMap.cpp NameMap.h NameEntry.h
+	$(CC) $(CFLAGS) NameMap.cpp -c
+
+namelookup.o: namelookup.cpp NameEntry.h NameMap.h
 	$(CC) -c $(CFLAGS) namelookup.cpp 
 
-namelookup: namelookup.o
-	$(CC) namelookup.o -o namelookup -L/usr/local/lib -lcgicc
+namelookup: namelookup.o NameEntry.o NameMap.o
+	$(CC) namelookup.o -o namelookup NameEntry.o NameMap.o -L/usr/local/lib -lcgicc
 
 PutCGI: namelookup
 	chmod 757 namelookup
