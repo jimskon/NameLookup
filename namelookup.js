@@ -22,7 +22,7 @@ function nameTable(list) {
     var a = list.split(",");
     var aLen = a.length;
     for (var i = 0; i < aLen; i+=3) {
-	result += "<tr><td>"+a[i]+"</td><td>"+a[i+1]+"</td><td>"+a[i+2]+"</td><tr>";
+	result += "<tr><td>"+a[i]+"</td><td>"+a[i+1]+"</td><td>"+a[i+2]+"</td></tr>";
     }
     result += "</table>";
 
