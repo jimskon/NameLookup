@@ -1,5 +1,5 @@
 // JavaScript for Name Data Lookup Demo
-// Jim Skon, Kenyon College, 2017
+// Jim Skon, Kenyon College, 2019
 var searchType;  // Save serach type here
 
 $(document).ready(function () {
