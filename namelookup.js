@@ -46,7 +46,7 @@ function getMatches(){
     if (searchStr.length < 2) return;
     $('#searchresults').empty();
     $.ajax({
-		url: '/cgi-bin/skon_namelookup.cgi?name='+searchStr+'&type_select='+searchType,
+		url: '/cgi-bin/namelookup.cgi?name='+searchStr+'&type_select='+searchType,
 		dataType: 'text',
 		success: processResults,
 		error: function(){alert("Error: Something went wrong");}
