@@ -30,7 +30,7 @@ using namespace std;
 using namespace cgicc; // Needed for AJAX functions.
 
 // Files with the name data
-const string path = "/home/class/SoftDev/namedata/";
+const string path = "/home/skon/NameLookup/namedata/";
 const string lastFile = path+"dist.all.last";
 const string maleFile = path+"dist.male.first";
 const string femaleFile = path+"dist.female.first";
@@ -43,6 +43,12 @@ int main() {
   NameMap lastMap(lastFile);
   NameMap femaleMap(femaleFile);
   NameMap maleMap(maleFile);
+  if (!lastMap.NameMapSuccess() || !femaleMap.NameMapSuccess()|| !maleMap.NameMapSuccess()) {
+      /* send back the results */
+      cout << "Content-Type: text/plain\n\n";
+      cout << "File open failure!" << endl;
+      return 0;
+    }
   vector<NameEntry> matchList; // place to stare the matches
   
   // Create AJAX objects to receive information from web page.
@@ -52,7 +58,7 @@ int main() {
   // Retrieve the actual paramaters
   string type = **itts;
   string name = **itname;
-
+  
   /* Convert name to upper case*/
   transform(name.begin(), name.end(), name.begin(), ::toupper);
 

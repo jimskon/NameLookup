@@ -9,9 +9,9 @@ $(document).ready(function () {
 
     $("#clear").click(clearResults);
 
-    $(".dropdown-menu li a").click(function(){
+    $(".dropdown-menu a").click(function(){
 	console.log("pick!"+$(this).text());
-	$(this).parents(".btn-group").find('.selection').text($(this).text());
+	$(this).parents(".dropdown").find(".selection").text($(this).text());
 	searchType=$(this).text();
     });
 });
@@ -40,10 +40,13 @@ function clearResults() {
 }
 
 function getMatches(){
-    if ($('#search').val().length < 2) return;
+    console.log("getMatches!");
+    var searchStr=$('#search').val();
+    console.log(searchStr+":"+searchType);
+    if (searchStr.length < 2) return;
     $('#searchresults').empty();
     $.ajax({
-		url: '/cgi-bin/skon_namelookup.cgi?name='+$('#search').val()+'&type_select='+searchType,
+		url: '/cgi-bin/skon_namelookup.cgi?name='+searchStr+'&type_select='+searchType,
 		dataType: 'text',
 		success: processResults,
 		error: function(){alert("Error: Something went wrong");}

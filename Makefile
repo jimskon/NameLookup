@@ -1,9 +1,6 @@
 #MakeFile to build and deploy the Sample US CENSUS Name Data using ajax
 # For CSC3004 Software Development
 
-# Put your user name below:
-USER= skon
-
 CC= g++
 
 #For Optimization
@@ -35,11 +32,10 @@ PutCGI: namelookup
 	ls -l /usr/lib/cgi-bin/
 
 PutHTML:
-	cp namelookup.html /var/www/html/class/softdev/$(USER)/Names/
-	cp namelookup.css /var/www/html/class/softdev/$(USER)/Names/
-	cp namelookup.js /var/www/html/class/softdev/$(USER)/Names/
-
+	cp namelookup.html /var/www/html/softdev/Names/
+	cp namelookup.css /var/www/html/softdev/Names/
+	cp namelookup.js /var/www/html/softdev/Names/
 	echo "Current contents of your HTML directory: "
-	ls -l /var/www/html/class/softdev/$(USER)/Names/
+	ls -l /var/www/html/softdev/Names/
 clean:
 	rm -f *.o  namelookup
