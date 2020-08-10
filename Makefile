@@ -26,7 +26,7 @@ namelookup: namelookup.o NameEntry.o NameMap.o
 
 PutCGI: namelookup
 	chmod 757 namelookup
-	cp namelookup /usr/lib/cgi-bin/$(USER)_namelookup.cgi 
+	cp namelookup /usr/lib/cgi-bin/namelookup.cgi 
 
 	echo "Current contents of your cgi-bin directory: "
 	ls -l /usr/lib/cgi-bin/

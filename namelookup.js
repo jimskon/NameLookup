@@ -46,10 +46,11 @@ function getMatches(){
     if (searchStr.length < 2) return;
     $('#searchresults').empty();
     $.ajax({
-		url: '/cgi-bin/namelookup.cgi?name='+searchStr+'&type_select='+searchType,
-		dataType: 'text',
-		success: processResults,
-		error: function(){alert("Error: Something went wrong");}
+	url: '/cgi-bin/namelookup.cgi?name='+searchStr+'&type_select='+searchType,
+	type: "get",
+	dataType: 'text',
+	success: processResults,
+	error: function(){alert("Error: Something went wrong");}
     });
 
 }
