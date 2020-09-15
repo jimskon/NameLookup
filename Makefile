@@ -1,6 +1,7 @@
 #MakeFile to build and deploy the Sample US CENSUS Name Data using ajax
 # For CSC3004 Software Development
 
+user = skon
 CC= g++
 
 #For Optimization
@@ -26,16 +27,16 @@ namelookup: namelookup.o NameEntry.o NameMap.o
 
 PutCGI: namelookup
 	chmod 757 namelookup
-	cp namelookup /usr/lib/cgi-bin/namelookup.cgi 
+	cp namelookup /usr/lib/cgi-bin/$(user)_namelookup.cgi 
 
 	echo "Current contents of your cgi-bin directory: "
 	ls -l /usr/lib/cgi-bin/
 
 PutHTML:
-	cp namelookup.html /var/www/html/softdev/Names/
-	cp namelookup.css /var/www/html/softdev/Names/
-	cp namelookup.js /var/www/html/softdev/Names/
+	cp namelookup.html /var/www/html/class/softdev/$(user)/Names/
+	cp namelookup.css /var/www/html/class/softdev/$(user)/Names/
+	cp namelookup.js /var/www/html/class/softdev/$(user)/Names/
 	echo "Current contents of your HTML directory: "
-	ls -l /var/www/html/softdev/Names/
+	ls -l /var/www/html/class/softdev/$(user)/Names/
 clean:
 	rm -f *.o  namelookup
