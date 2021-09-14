@@ -74,12 +74,17 @@ int main() {
   /* send back the results */
   cout << "Content-Type: text/plain\n\n";
 
-  /* Results are comma delimited (name, percent, rank, name, ...) for up to 10 names */
+  /* Results are comma in JSON for up to 10 names */
+  cout << "{\"results\":[";
   for (int i = 0; i < matchList.size(); i++) {
-    cout << matchList.at(i).name << "," <<  matchList.at(i).percent << "," << matchList.at(i).rank;
+    cout << "{\"name\":\"" << matchList.at(i).name << "\",";
+    cout << "\"percent\":" << matchList.at(i).percent << ",";
+    cout << "\"rank\":" << matchList.at(i).rank;
+    cout << "}";
     if (i<matchList.size()-1)
       cout << ","; // Only put out this comma if not last entry.
   }
+  cout << "]}";
   
 return 0;
 }
