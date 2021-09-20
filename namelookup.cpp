@@ -30,7 +30,7 @@ using namespace std;
 using namespace cgicc; // Needed for AJAX functions.
 
 // Files with the name data
-const string path = "/home/skon/NameLookup/namedata/";
+const string path = "/home/class/SoftDev/namedata/";
 const string lastFile = path+"dist.all.last";
 const string maleFile = path+"dist.male.first";
 const string femaleFile = path+"dist.female.first";
