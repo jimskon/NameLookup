@@ -2,14 +2,6 @@
 // Jim Skon, Kenyon College, 2019
 var searchType;  // Save search type here
 
-// search prarents for a matching selector
-var getClosest = function (elem, selector) {
-	for ( ; elem && elem !== document; elem = elem.parentNode ) {
-		if ( elem.matches( selector ) ) return elem;
-	}
-	return null;
-};
-
 console.log("Start!");
 searchType="Last";
 // Add a click event for the search button
