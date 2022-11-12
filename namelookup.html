@@ -38,8 +38,8 @@
 	</div>
       </li>
     </ul>
-    <form class="form-inline mt-2 mt-md-0">
-      <input id="search" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+    <form id="searchForm" class="form-inline mt-2 mt-md-0" onsubmit="return false">
+      <input id="search" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" onclick ="getMatches()" >
       <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
     </form>
   </div>

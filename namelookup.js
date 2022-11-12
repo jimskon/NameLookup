@@ -9,6 +9,7 @@ document.querySelector("#search-btn").addEventListener("click", (e) => {
     getMatches();
 });
 
+
 // Add an event listener for each item in the pull down menu
 document.querySelectorAll('.dropdown-menu a').forEach(item => {
     item.addEventListener('click', event => {
@@ -53,7 +54,7 @@ function getMatches_old(){
     if (searchStr.length < 2) return;
     document.querySelector('#searchresults').innerHTML = "";
     $.ajax({
-	url: '/cgi-bin/skon_namelookup.cgi?name='+searchStr+'&type_select='+searchType,
+	url: '/cgi-bin/namelookup.cgi?name='+searchStr+'&type_select='+searchType,
 	type: "get",
 	dataType: 'text',
 	success: processResults,
@@ -73,7 +74,7 @@ function getMatches(){
     // Clear the previous results
     document.querySelector('#searchresults').innerHTML = "";
 
-    fetch('/cgi-bin/skon_namelookup.cgi?name='+searchStr+'&type_select='+searchType, {
+    fetch('/cgi-bin/namelookup.cgi?name='+searchStr+'&type_select='+searchType, {
 	method: 'get'
     })
 	.then (response => response.json() )
